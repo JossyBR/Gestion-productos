@@ -27,6 +27,13 @@ export default function (state = initialState, action) {
         productos: [...state.productos, action.payload],
       };
 
+    case AGREGAR_PRODUCTO_ERROR:
+      return{
+        ...state,
+        loading: false,
+        error: action.payload
+      }  
+
     default:
       return state;
   }
