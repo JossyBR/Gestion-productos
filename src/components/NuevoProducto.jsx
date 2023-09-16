@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 //Actions de redux
 import { crearNuevoProducto } from "../Redux/actions/productosAction";
 
-const NuevoProducto = () => {
+const NuevoProducto = ({ history }) => {
   //State del componente
   const [nombre, guardarNombre] = useState("");
   const [precio, guardarPrecio] = useState(0);
@@ -35,6 +35,9 @@ const NuevoProducto = () => {
       nombre,
       precio,
     });
+
+    //Redireccionar NO ME ESTA FUNCIONANDO LA REDIRECCIÓN
+    history.push('/')
   };
 
   return (
