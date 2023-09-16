@@ -1,19 +1,29 @@
 {
-    "productos": [
-      {
-        "nombre": "Rib Eye",
-        "precio": "500",
-        "id": 7
-      },
-      {
-        "nombre": "Jugo de Limón",
-        "precio": 100,
-        "id": 9
-      },
-      {
-        "nombre": "1",
-        "precio": 2,
-        "id": 10
-      }
-    ]
-  }
+  "productos": [
+    {
+      "nombre": "Rib Eye",
+      "precio": "500",
+      "id": 7
+    },
+    {
+      "nombre": "Jugo de Limón",
+      "precio": 100,
+      "id": 9
+    },
+    {
+      "nombre": "1",
+      "precio": 2,
+      "id": 10
+    },
+    {
+      "nombre": "coral",
+      "precio": 400,
+      "id": 11
+    },
+    {
+      "nombre": "esmeralda",
+      "precio": 350,
+      "id": 12
+    }
+  ]
+}
