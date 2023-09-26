@@ -5,6 +5,9 @@ import {
   COMENZAR_DESCARGA_PRODUCTOS,
   DESCARGA_PRODUCTOS_EXITO,
   DESCARGA_PRODUCTOS_ERROR,
+  OBTENER_PRODUCTO_ELIMINAR,
+  PRODUCTO_ELIMINADO_EXITO,
+  PRODUCTO_ELIMINADO_ERROR,
 } from "../types";
 import clienteAxios from "../../config/axios";
 import Swal from "sweetalert2";
@@ -63,12 +66,11 @@ export function obtenerProductosAction() {
 
     try {
       const respuesta = await clienteAxios.get("/productos");
-        dispatch(descargaProductosExitosa(respuesta.data));
+      dispatch(descargaProductosExitosa(respuesta.data));
       // setTimeout( async () => {
       //   const respuesta = await clienteAxios.get("/productos");
       //   dispatch(descargaProductosExitosa(respuesta.data));
       // }, 3000);
-     
     } catch (error) {
       console.log(error);
       dispatch(descargaProductosError());
@@ -89,4 +91,15 @@ const descargaProductosExitosa = (productos) => ({
 const descargaProductosError = () => ({
   type: DESCARGA_PRODUCTOS_ERROR,
   payload: true,
+});
+
+export function borrarProductoAction(id) {
+  return async (dispatch) => {
+    dispatch(obtenerProductosEliminar(id));
+  };
+}
+
+const obtenerProductosEliminar = (id) => ({
+  type: OBTENER_PRODUCTO_ELIMINAR,
+  payload: id,
 });

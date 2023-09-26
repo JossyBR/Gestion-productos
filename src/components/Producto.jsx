@@ -1,8 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//Redux
+import { useDispatch } from "react-redux";
+import { borrarProductoAction } from "../Redux/actions/productosAction";
+
 const Producto = ({ producto }) => {
   const { nombre, precio, id } = producto;
+  const dispatch = useDispatch();
+
+  const confirmarEliminarProducto = (id) => {
+    //preguntar al usuario
+
+    //Pasarlo al actio
+    dispatch(borrarProductoAction(id));
+  };
+
   return (
     <tr>
       <td>{nombre}</td>
@@ -13,7 +26,11 @@ const Producto = ({ producto }) => {
         <Link to={`/productos/editar/${id}`} className="btn btn-primary mr-2">
           Editar
         </Link>
-        <button type="button" className="btn btn-danger">
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={() => confirmarEliminarProducto(id)}
+        >
           Eliminar
         </button>
       </td>
