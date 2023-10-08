@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 //Actions de redux
 import { crearNuevoProducto } from "../Redux/actions/productosAction";
+import {
+  mostrarAlerta,
+  ocultarAlertaAction,
+} from "../Redux/actions/alertaAction";
 
 const NuevoProducto = ({ history }) => {
   //State del componente
@@ -15,6 +19,7 @@ const NuevoProducto = ({ history }) => {
   //Acceder al state del store
   const cargando = useSelector((state) => state.productos.loading);
   const error = useSelector((state) => state.productos.error);
+  const alerta = useSelector((state) => state.alerta.alerta);
 
   //manda a llamar el actio de productoAction
   const agregarProducto = (producto) => dispatch(crearNuevoProducto(producto));
@@ -25,10 +30,16 @@ const NuevoProducto = ({ history }) => {
 
     //validar formulario
     if (nombre.trim() === "" || precio <= 0) {
+      const alerta = {
+        msg: "Ambos campos son obligatorios",
+        classes: "alert alert-danger text-center text-uppercase p3",
+      };
+      dispatch(mostrarAlerta(alerta));
       return;
     }
 
     //si no hay errores
+    dispatch(ocultarAlertaAction());
 
     //Crea el nuevo producto
     agregarProducto({
@@ -37,7 +48,7 @@ const NuevoProducto = ({ history }) => {
     });
 
     //Redireccionar NO ME ESTA FUNCIONANDO LA REDIRECCIÓN
-    history.push('/')
+    history.push("/");
   };
 
   return (
@@ -48,6 +59,8 @@ const NuevoProducto = ({ history }) => {
             <h2 className="text-center mb-4 font-weight-bold">
               Agregar Nuevo Producto
             </h2>
+
+            {alerta ? <p className={alerta.classes}> {alerta.msg}</p> : null}
 
             <form onSubmit={submitNuevoProducto}>
               <div className="form-group">
