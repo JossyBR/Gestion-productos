@@ -1,12 +1,12 @@
 {
   "productos": [
     {
-      "nombre": "Jugo de Limón",
-      "precio": 100,
+      "nombre": "",
+      "precio": "",
       "id": 9
     },
     {
-      "nombre": "coral",
+      "nombre": "Jugo de mango",
       "precio": 400,
       "id": 11
     },
@@ -16,14 +16,19 @@
       "id": 12
     },
     {
-      "nombre": "Jugo de piña",
-      "precio": 100,
+      "nombre": "Jugo de uva",
+      "precio": "200",
       "id": 13
     },
     {
       "nombre": "jugo de lulo",
       "precio": 100,
       "id": 14
+    },
+    {
+      "nombre": "Jugo de Mora",
+      "precio": 100,
+      "id": 15
     }
   ]
 }
